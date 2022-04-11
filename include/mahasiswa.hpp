@@ -22,8 +22,8 @@ public:
 	void setSemester(int semesterke);
 	int getSemester();
 
-	// void setTahunMasuk(int tahunmasuk);
-    // int getTahunMasuk();
+	void setTahunMasuk(int tahunmasuk);
+    int getTahunMasuk();
 
 
 	void setSKSLulus(int skslulus);
@@ -38,5 +38,12 @@ public:
 	float getIPS(int semester);
 	std::vector<float> getAllIPS();
 };
+
+void mahasiswa::setTahunMasuk(int tahunmasuk){
+	this->tahunmasuk = tahunmasuk;
+}
+int mahasiswa::getTahunMasuk(){
+	return this->tahunmasuk;
+}
 
 #endif

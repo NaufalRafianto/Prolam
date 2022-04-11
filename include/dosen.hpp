@@ -8,15 +8,16 @@ class dosen : public person {
 private:
 	std::string npp;
 	std::string departemen;
-	int pendidikan;
+	std::string pendidikan;
 
 public:
-	dosen(std::string id, std::string nama, int dd, int mm, int yy, std::string npp, std::string departemen, int pendidikan);
+	dosen(std::string id, std::string nama, int dd, int mm, int yy, std::string npp, std::string departemen, std::string pendidikan);
 
-	void setPendidikan(int pendidikan);
-	int getPendidikan();
-
+	void setDepartment(std::string departemen);
+	std::string getPendidikan();
+	void setNPP(std::string npp);
 	std::string getNPP();
+	void setPendidikan(std::string pendidikan);
 	std::string getDepartment();
 };
 
