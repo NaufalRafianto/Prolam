@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Apr 11 17:02:20 2022
+# Make data base, printed on Mon Apr 11 18:15:24 2022
 
 # Variables
 
@@ -23,7 +23,7 @@ USERPROFILE = C:\Users\naufl
 # environment
 LOCALAPPDATA = C:\Users\naufl\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-ebfa708f-e2f5-4c37-9af9-7d3e3377fa4a-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-2be4b25f-5df3-4922-91fd-10dc1d93369a-sock
 # environment
 VSCODE_CWD = C:\Users\naufl\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -39,7 +39,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_8436_ZYAENXWEUTZOCFTT
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_7280_VMIKAYVDELMHFJIZ
 # environment
 FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
@@ -95,7 +95,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 8436
+VSCODE_PID = 7280
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -151,8 +151,7 @@ COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
 # environment
 PROGRAMW6432 = C:\Program Files
 # environment
-PATHEXT = .COM;.EXE;.BAT;.CMD 
-;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
 # automatic
 +F = $(notdir $+)
 # environment
@@ -210,8 +209,7 @@ PROCESSOR_REVISION = 8e09
 # makefile (from 'Makefile', line 1)
 CXX = g++ 
 # makefile (from 'Makefile', line 3)
-SOURCES = src/main.cpp src/person.cpp sr 
-c/mahasiswa.cpp src/dosen.cpp src/tendik.cpp
+SOURCES = src/main.cpp src/person.cpp src/mahasiswa.cpp src/dosen.cpp src/tendik.cpp
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
 # variable set hash-table stats:
@@ -308,6 +306,6 @@ src/dosen.o:
 # strcache performance: lookups = 26 / hit rate = 23%
 # hash-table stats:
 # Load=20/8192=0%, Rehash=0, Collisions=0/26=0%
-# Finished Make data base on Mon Apr 11 17:02:20 2022
+# Finished Make data base on Mon Apr 11 18:15:24 2022
 
  

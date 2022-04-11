@@ -134,7 +134,7 @@ int main()
                         return main();
                     }else if(recMhs.size() != 0){
                     for (int i = 0; i < recMhs.size(); i++){
-                        cout << "Nama: " << recMhs[i].getNama() << "( " << idUser << " )" <<endl;
+                        cout << "Nama: " << recMhs[i].getNama() << "( " << recMhs[i].getId()cls << " )" <<endl;
                     }
                         cout << "Pilih berdasarkan ID: ";
                         cin>> idUser;
