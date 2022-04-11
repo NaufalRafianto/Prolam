@@ -10,19 +10,42 @@
 
 using namespace std;
 
-int main(int argc, char** argv)
+void cls(){
+    system("cls")&&system("clear");
+}
+
+int main()
 {
 	vector<mahasiswa> recMhs;
 	vector<dosen> recDosen;
 	vector<tendik> recTendik;
 
 	int menu_terpilih;
-	int student = 0, lecturer = 0, staff = 0; 
+	int idS = 0, idL = 0, idSt = 0, idUser = 0; 
 
-    string id, name, studentID, staffID, department, unit, showGPA, repeat;
-    int bornYear, bornMonth, bornDay, yearEntry, education;
+    string id, name, studentID, staffID, department, unit, showGPA, user, menuAdmin; 
+    char repeat, mengeditIP;
+    int bornYear, bornMonth, bornDay, yearEntry, education, semester;
+    int menu = 0;
+    cout << "Login as: ";
+    cin >> user;
 
-	while(1) {
+    if(user == "Admin" or user == "admin"){
+        menu = 1;
+    } else if(user == "Mahasiswa" or user == "mahasiswa"){
+        menu = 2;
+    }else if(user == "tendik" or user == "Tendik")
+    {
+        menu = 3;
+    }else if(user == "dosen" or user == "Dosen"){
+        menu = 4;
+    }else
+    {
+        cout << "User was not Found" << endl;
+    }
+
+    while(1) {
+        cls();
 		cout << "Selamat datang di Institut Teknologi Suka Suka" << endl;
 		cout << "Data statistik:" << endl;
 		cout << "  1. Jumlah Mahasiswa             : " << recMhs.size() << " mahasiswa" << endl;
@@ -36,15 +59,16 @@ int main(int argc, char** argv)
 		cout << "  4. Tampilkan semua Mahasiswa" << endl;
 		cout << "  5. Tampilkan semua Dosen" << endl;
 		cout << "  6. Tampilkan semua Tenaga Kependidikan" << endl;
+        cout << "  7. Ganti User" << endl;
+        cout << "  8. Tutup Program" << endl;
 		cout << "-> Silahkan memilih salah satu: ";
 		cin >> menu_terpilih;
-
 		switch (menu_terpilih) {
 			case 1:{
-                student++;
-				id = "std" + to_string(student);
+                cls();
+                ++idS;
 				cout << "Masukkan Nama Mahasiswa: ";
-                getline(cin,name);
+                getline(cin >> ws ,name);
                 cout << "Masukkan Tanggal lahir : ";
                 cin >> bornDay;
                 cout << "Masukkan Bulan lahir : ";
@@ -54,20 +78,19 @@ int main(int argc, char** argv)
                 cout << "Masukkan NRP : ";
                 cin >> studentID;
                 cout << "Masukkan Departemen : ";
-                getline(cin,department);
+                getline(cin>>ws, department);
                 cout << "Masukkan Tahun Masuk : ";
                 cin >> yearEntry;
-                mahasiswa inputStudent = mahasiswa(id, name, bornDay, bornMonth, bornYear, staffID, department, education);
+                cout << "Masukkan Semester: ";
+                cin >> semester;
+                mahasiswa inputStudent = mahasiswa(id, name, bornDay, bornMonth, bornYear, studentID, department, semester);
                 recMhs.push_back(inputStudent);
 			}
 				break;
 			case 2:{
-				lecturer++;
-				system("clear");
-				id = "lct" + to_string(student);
+                cls();
+				idL++;
 				cout << "Masukkan Nama Dosen: ";
-                cin >> name;
-                cout << "Masukkan Nama Mahasiswa: ";
                 cin >> name;
                 cout << "Masukkan Tanggal lahir : ";
                 cin >> bornDay;
@@ -86,9 +109,8 @@ int main(int argc, char** argv)
 			}
 				break;
 			case 3:{
-				staff++;
-				system("clear");
-				id = "stf" + to_string(staff);
+                cls();
+				idSt++;
 				cout << "Masukkan Nama tendik : ";
                 cin>>name;
                 cout << "Masukkan Tanggal lahir : ";
@@ -97,30 +119,57 @@ int main(int argc, char** argv)
                 cin >> bornMonth;
                 cout << "Masukkan Tahun lahir : ";
                 cin >> bornYear;
-                cin >> bornMonth;
                 cout << "Masukkan NPP : ";
                 cin >> staffID;
                 cout << "Masukkan Unit : ";
-                cin >> unit;
+                getline(cin, unit);
                 tendik inputTendik = tendik(id, name, bornDay, bornMonth, bornYear, staffID, unit);
                 recTendik.push_back(inputTendik);
 			}
 				break;
 			case 4:{
-                system("clear");
-                    for (int i = 0; i < recMhs.size(); i++)
-					{
-						cout << "Nama: " << recMhs[i].getNama() << endl;
-						cout << "Tgl lahir: " << recMhs[i].getTglLahir();
-						cout << "/" << recMhs[i].getBulanLahir();
-						cout << "/" << recMhs[i].getTahunLahir() << endl;
-						cout << "NRP: " << recMhs[i].getNRP() << endl;
-						cout << "Departemen: " << recMhs[i].getDepartment() << endl << endl;
-					}
-            }
+                    if(recMhs.size() == 0){
+                        cout << "Data tidak ditemukan!" << endl;
+                        cout << "Tekan apapun untuk kembali ke menu..."<<endl;
+                        return main();
+                    }else if(recMhs.size() != 0){
+                    for (int i = 0; i < recMhs.size(); i++){
+                        cout << "Nama: " << recMhs[i].getNama() << "( " << idUser << " )" <<endl;
+                    }
+                        cout << "Pilih berdasarkan ID: ";
+                        cin>> idUser;
+                    }
+                    if ((idUser > recMhs.size())){
+                        cls();
+                        cout << "Data tidak ditemukan!" << endl;
+                        cout << "Tekan apapun untuk kembali ke menu..." <<endl;
+                        return main();
+                    }
+                    cls();
+                    for(int i=0; i<recMhs.size(); i++) {
+                    cout << "---------------------------------- Data Mahasiswa --------------------------------" << endl;
+                    cout << " ID Mahasiswa: " << idUser << endl;
+                    cout << "Nama : " << recMhs[i].getNama() << endl;
+                    cout << "Tanggal Lahir : " << recMhs[i].getTglLahir() << "/" << recMhs[i].getBulanLahir() << "/" << recMhs[i].getTahunLahir()<<endl;
+                    cout << "NRP : " << recMhs[i].getNRP() << endl;
+                    cout << "Departemen : " << recMhs[i].getDepartment() << endl;
+                    // cout << "Tahun Masuk : " << recMhs[i].getTahunMasuk() << endl;
+                    cout << "Semester : " << recMhs[i].getSemester() << endl;
+                    cout << "Jumlah SKS yang Lulus : " << recMhs[i].getSKSLulus() << endl;
+                    }
+                    cout<<"Pilih Salah satu : "<<endl;
+                    cout<<"-------------------------------------------------------"<<endl;
+                    cout<<"Menu IP: ";
+                    cout << "  1. Input IP " << endl;
+					cout << "  2. Lihat IP " << endl;
+					cout << "  3. Edit Data" << endl;
+					cout << "  4. Hapus Data" << endl;
+					cout << "  5. Kembali ke Menu Utama" << endl;
+                    cin>>mengeditIP;
+                    
+            }       
 				break;
 			case 5:{
-                system("clear");
                 for (int i = 0; i < recDosen.size(); i++)
 					{
 						cout << "Nama: " << recDosen[i].getNama() << endl;
@@ -133,10 +182,7 @@ int main(int argc, char** argv)
 					}
             } break;
 			case 6:{
-                // membersihkan layar konsol
-                system("clear");
-                // menampilkan data
-                for(int i = 0; i < staff; i++){
+                for(int i = 0; i < idSt; i++){
                     cout << i+1 << ". data tendik dengan id: " << recTendik[i].getId() << endl;
                     cout << "\tNama        : " << recTendik[i].getNama() << endl;
                     cout << "\tTanggal Lahir    : " << recTendik[i].getTglLahir() << "/" << recTendik[i].getBulanLahir() << "/" << recTendik[i].getTahunLahir() << endl;
@@ -144,7 +190,16 @@ int main(int argc, char** argv)
                     cout << "\tUnit        : " << recTendik[i].getUnit() << endl << endl;
                     }
                 } break;
-		    }
+                
         } 
+                // cout<<"Apakah Ingin Melanjutkan? (Y/N)";
+                // cin >>repeat;
+                // if(repeat=='n' or repeat =='N'){
+                //     break;
+		        // }else if(repeat =='y' or repeat =='Y'){
+                //     return main();
+                // }
+    }
 	return 0;
 }
+

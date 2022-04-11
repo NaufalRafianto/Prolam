@@ -1,5 +1,5 @@
 CXX?=g++ 
-CXXFLAGS+= --std=c++17 -O3 -Wall -Wextra -I.
+CXXFLAGS+= --std=c++17 -O3 -I.
 SOURCES=src/main.cpp src/person.cpp src/mahasiswa.cpp src/dosen.cpp src/tendik.cpp
 
 src/%.o: src/%.cpp 
@@ -7,3 +7,5 @@ src/%.o: src/%.cpp
 
 sim: $(SOURCES:.cpp=.o)
 	$(CXX) $(CXXFLAGS) -o $@ $^
+
+

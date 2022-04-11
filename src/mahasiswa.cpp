@@ -38,6 +38,11 @@ void mahasiswa::hitungIPK()
 {
 }
 
+// void mahasiswa::setTahunMasuk(int tahunmasuk)
+// {
+//     this->tahunmasuk = tahunmasuk;
+// }
+
 void mahasiswa::setIPS(int semester, float ips)
 {
 	// semester mulai dari 1

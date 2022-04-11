@@ -22,6 +22,10 @@ public:
 	void setSemester(int semesterke);
 	int getSemester();
 
+	// void setTahunMasuk(int tahunmasuk);
+    // int getTahunMasuk();
+
+
 	void setSKSLulus(int skslulus);
 	int getSKSLulus();
 
